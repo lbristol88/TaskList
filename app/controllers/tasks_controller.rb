@@ -41,6 +41,12 @@ class TasksController < ApplicationController
     redirect_to task_path(task.id)
   end
 
+  def destroy
+    task = Task.find_by(id: params[:id])
+    task.destroy
+    redirect_to root_path
+  end
+
   def complete
     task = Task.find(params[:id])
     task.completion_date = DateTime.now
