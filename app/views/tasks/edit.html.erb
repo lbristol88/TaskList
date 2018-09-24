@@ -1,0 +1,16 @@
+<h2>Edit This Task</h2>
+
+<%= form_with model: @task, class: 'edit-task-form' do |f| %>
+  <p>Here you can update a Task's details:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Update Task", class: "task-edit-button" %>
+<% end %>
+
+<p>
+<%= link_to "(Return to Homepage)", task_path %>

@@ -4,7 +4,10 @@
 <ul>
   <% @tasks.each do |task|  %>
     <li>
-      Task Name: <%= task[:name] %>; Description: <%= task[:description] %> <%= link_to "(View Details)", show_task_path(task.id) %>
+      Task Name: <%= task[:name] %>; Description: <%= task[:description] %>
+      <%= link_to "(View Details)", task_path(task.id) %>
+      <%= link_to "(Edit Task)", edit_task_path(task.id) %>
+
     </li>
   <% end %>
 </ul>
