@@ -1,3 +1,5 @@
+require 'date'
+
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
@@ -37,6 +39,14 @@ class TasksController < ApplicationController
     task.update(task_params)
 
     redirect_to task_path(task.id)
+  end
+
+  def complete
+    task = Task.find(params[:id])
+    task.completion_date = DateTime.now
+    task.save
+
+    redirect_to root_path
   end
 
 

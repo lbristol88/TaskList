@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :tasks
+
+  patch '/tasks/:id/complete', to: 'tasks#complete', as: 'complete_task'
   # get '/tasks', to: 'tasks#index', as: 'task'
   #
   # get '/tasks/new', to: 'tasks#new', as: 'new_task'

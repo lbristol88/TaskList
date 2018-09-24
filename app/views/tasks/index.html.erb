@@ -7,7 +7,7 @@
       Task Name: <%= task[:name] %>; Description: <%= task[:description] %>
       <%= link_to "(View Details)", task_path(task.id) %>
       <%= link_to "(Edit Task)", edit_task_path(task.id) %>
-
+      <%= link_to "(Complete Task)", complete_task_path(task.id), method: :patch %>
     </li>
   <% end %>
 </ul>
