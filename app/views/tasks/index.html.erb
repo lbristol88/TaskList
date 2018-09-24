@@ -1,0 +1,12 @@
+<p>Hi <%= "buddy".upcase %>!</p>
+
+<h1>Tasks</h1>
+<ul>
+  <% @tasks.each do |task|  %>
+    <li>
+      Task's name: <%= task[:name] %> -- Description: <%= task[:description] %>
+    </li>
+  <% end %>
+</ul>
+
+<a href="http://localhost:3000/tasks/show">link to show</a>
