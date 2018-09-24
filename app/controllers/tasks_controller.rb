@@ -11,4 +11,30 @@ class TasksController < ApplicationController
     end
   end
 
+  def new
+    @task = Task.new
+  end
+  
+  def create
+    filtered_task_params = task_params()
+    @task = Task.new(filtered_task_params)
+
+    is_successful_save = @task.save
+    if is_successful_save
+      redirect_to root_path
+    else
+      render :new
+    end
+
+  end
+
+
+private
+
+  def task_params
+    return params.require(:task).permit(
+      :name,
+      :description,
+    )
+  end
 end

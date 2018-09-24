@@ -1,0 +1,16 @@
+<h2>New Task Form</h2>
+
+<%= form_with model: @task, class: 'task-form' do |f| %>
+  <p>Please provide the following information to save your task to our database:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Save Task", class: "task-button" %>
+<% end %>
+
+<p>
+<%= link_to "(Return to Homepage)", tasks_path %>
