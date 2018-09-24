@@ -4,11 +4,19 @@
 <ul>
   <% @tasks.each do |task|  %>
     <li>
+      <div class="row">
+      <%  if task[:completion_date]  %>
+        <input type="checkbox" checked>
+      <% else %>
+        <input type="checkbox">
+      <% end %>
+      <span>
       Task Name: <%= task[:name] %>; Description: <%= task[:description] %>
       <%= link_to "(View Details)", task_path(task.id) %>
       <%= link_to "(Edit Task)", edit_task_path(task.id) %>
       <%= link_to "(Delete Task)", task_path(task.id), method: :delete %>
       <%= link_to "(Complete Task)", complete_task_path(task.id), method: :patch %>
+      </span></div>
     </li>
   <% end %>
 </ul>
